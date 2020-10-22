@@ -30,6 +30,7 @@ To be able to quickly test the code from lesson 1 manually, a new file was creat
 1. Delete an existing status.
 1. Try to delete a non-existing status and confirm you get an error message.
 1. Save the status database.
+1. Make sure menu options are case-insensitive (i.e., typing "a" or "A" works in the same way).
 
 # Other requirements #
 
