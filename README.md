@@ -30,7 +30,7 @@ To be able to quickly test the code from lesson 1 manually, a new file was creat
 1. Update the text of an existing status ID.
 1. Try to update the text of a non-existing status ID and confirm you get an error message.
 1. Search for an existing status ID and return the ID of the user that created the status and the status text.
-1. Search for a non-existing status ID and returng a message indicating that the status ID does not exist.
+1. Search for a non-existing status ID and return a message indicating that the status ID does not exist.
 1. Delete an existing status.
 1. Try to delete a non-existing status and confirm you get an error message.
 1. Save the status database.
