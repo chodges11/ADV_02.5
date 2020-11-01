@@ -19,8 +19,8 @@ To be able to quickly test the code from lesson 1 manually, a new file was creat
 1. Try to add the same user ID again and confirm you get an error message.
 1. Update the name of an existing user.
 1. Try to update the name of a non-existing user and confirm you get an error message.
-1. Search for an existing user and getting that user's email, name and last name.
-1. Search for a non-existing user and getting a message indicating that the user does not exist.
+1. Search for an existing user and return that user's email, name and last name.
+1. Search for a non-existing user and return a message indicating that the user does not exist.
 1. Delete an existing user.
 1. Try to delete a non-existing user and confirm you get an error message.
 1. Save the users database.
@@ -29,8 +29,8 @@ To be able to quickly test the code from lesson 1 manually, a new file was creat
 1. Try to add the same status ID again and confirm you get an error message.
 1. Update the text of an existing status ID.
 1. Try to update the text of a non-existing status ID and confirm you get an error message.
-1. Search for an existing status ID and getting the ID of the user that created the status and the status text.
-1. Search for a non-existing status ID and getting a message indicating that the status ID does not exist.
+1. Search for an existing status ID and return the ID of the user that created the status and the status text.
+1. Search for a non-existing status ID and returng a message indicating that the status ID does not exist.
 1. Delete an existing status.
 1. Try to delete a non-existing status and confirm you get an error message.
 1. Save the status database.
