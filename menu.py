@@ -4,6 +4,7 @@ Provides a basic frontend
 import sys
 import main
 
+
 def load_users():
     '''
     Loads user accounts from a file
@@ -11,12 +12,14 @@ def load_users():
     filename = input('Enter filename of user file: ')
     main.load_users(filename, user_selection)
 
+
 def load_status_updates():
     '''
     Loads status updates from a file
     '''
     filename = input('Enter filename for status file: ')
     main.load_status_updates(filename, status_collection)
+
 
 def add_user():
     '''
@@ -26,10 +29,15 @@ def add_user():
     email = input('User email: ')
     user_name = input('User name: ')
     user_last_name = input('User last name: ')
-    if not main.add_user(user_id, email, user_name, user_last_name, user_collection):
+    if not main.add_user(user_id,
+                         email,
+                         user_name,
+                         user_last_name,
+                         user_collection):
         print("An error occurred while trying to add new user")
     else:
         print("User was successfully added")
+
 
 def update_user():
     '''
@@ -43,6 +51,7 @@ def update_user():
         print("An error occurred while trying to update user")
     else:
         print("User was successfully updated")
+
 
 def search_user():
     '''
@@ -58,6 +67,7 @@ def search_user():
         print(f"Name: {result.user_name}")
         print(f"Last name: {result.user_last_name}")
 
+
 def delete_user():
     '''
     Deletes user from the database
@@ -68,12 +78,14 @@ def delete_user():
     else:
         print("User was successfully deleted")
 
+
 def save_users():
     '''
     Saves user database into a file
     '''
     filename = input('Enter filename for users file: ')
     main.save_users(filename, user_collection)
+
 
 def add_status():
     '''
@@ -87,6 +99,7 @@ def add_status():
     else:
         print("New status was successfully added")
 
+
 def update_status():
     '''
     Updates information for an existing status
@@ -98,6 +111,7 @@ def update_status():
         print("An error occurred while trying to update status")
     else:
         print("Status was successfully updated")
+
 
 def search_status():
     '''
@@ -112,6 +126,7 @@ def search_status():
         print(f"Status ID: {result.status_id}")
         print(f"Status text: {result.status_text}")
 
+
 def delete_status():
     '''
     Deletes status from the database
@@ -122,6 +137,7 @@ def delete_status():
     else:
         print("Status was successfully deleted")
 
+
 def save_status():
     '''
     Saves status database into a file
@@ -129,11 +145,13 @@ def save_status():
     filename = input('Enter filename for status file: ')
     main.save_status_updates(filename, status_collection)
 
+
 def quit_program():
     '''
     Quits program
     '''
     sys.exit()
+
 
 if __name__ == '__main__':
     user_collection = main.init_user_collection()
