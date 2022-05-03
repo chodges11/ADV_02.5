@@ -131,7 +131,7 @@ def save_status_updates(filename, status_collection):
     - Returns False if there are any errors(such an invalid filename).
     - Otherwise, it returns True.
     """
-    csv_columns = ['STATUS_ID', 'USER_ID', 'STATUS_TEXT']
+    csv_columns = ['STATUS_ID','USER_ID','STATUS_TEXT']
     try:
         with open(filename, 'w') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
