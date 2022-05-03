@@ -29,14 +29,14 @@ def add_user():
     email = input('User email: ')
     user_name = input('User name: ')
     user_last_name = input('User last name: ')
-    if not main.add_user(user_id,
-                         email,
-                         user_name,
-                         user_last_name,
-                         user_collection):
-        print("An error occurred while trying to add new user")
-    else:
+    if main.add_user(user_id,
+                     email,
+                     user_name,
+                     user_last_name,
+                     user_collection):
         print("User was successfully added")
+    else:
+        print("An error occurred while trying to add new user")
 
 
 def update_user():
@@ -47,14 +47,14 @@ def update_user():
     email = input('User email: ')
     user_name = input('User name: ')
     user_last_name = input('User last name: ')
-    if not main.modify_user(user_id,
-                            email,
-                            user_name,
-                            user_last_name,
-                            user_collection):
-        print("An error occurred while trying to update user")
-    else:
+    if main.modify_user(user_id,
+                        email,
+                        user_name,
+                        user_last_name,
+                        user_collection):
         print("User was successfully updated")
+    else:
+        print("An error occurred while trying to update user")
 
 
 def search_user():
@@ -95,26 +95,26 @@ def add_status():
     """
     Adds a new status into the database
     """
-    user_id = input('User ID: ')
     status_id = input('Status ID: ')
+    user_id = input('User ID: ')
     status_text = input('Status text: ')
-    if not main.add_status(user_id, status_id, status_text, status_collection):
-        print("An error occurred while trying to add new status")
-    else:
+    if main.add_status(status_id, user_id, status_text, status_collection):
         print("New status was successfully added")
+    else:
+        print("An error occurred while trying to add new status")
 
 
 def update_status():
     """
     Updates information for an existing status
     """
-    user_id = input('User ID: ')
     status_id = input('Status ID: ')
+    user_id = input('User ID: ')
     status_text = input('Status text: ')
-    if not main.add_status(user_id, status_id, status_text, status_collection):
-        print("An error occurred while trying to update status")
-    else:
+    if main.modify_status(status_id, user_id, status_text, status_collection):
         print("Status was successfully updated")
+    else:
+        print("An error occurred while trying to update status")
 
 
 def search_status():
@@ -123,7 +123,7 @@ def search_status():
     """
     status_id = input('Enter status ID to search: ')
     result = main.search_status(status_id, status_collection)
-    if not result.user_id:
+    if result is None:
         print("ERROR: Status does not exist")
     else:
         print(f"User ID: {result.user_id}")

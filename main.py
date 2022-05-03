@@ -134,7 +134,7 @@ def save_status_updates(filename, status_collection):
     csv_columns = ['STATUS_ID', 'USER_ID', 'STATUS_TEXT']
     try:
         with open(filename, 'w') as csvfile:
-            writer = csv.DictWriter(csvfile)
+            writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
             writer.writeheader()
             writer.writerow(status_collection.database)
         return True
