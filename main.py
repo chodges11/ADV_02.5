@@ -49,7 +49,7 @@ def load_users(filename, user_collection):
                                user_name=row["NAME"],
                                user_last_name=row["LASTNAME"]
                                )
-                if user.user_id in user_collection.values:
+                if user.user_id in user_collection.database:
                     continue
                 user_collection.add_user(user.user_id,
                                          user.email,
@@ -81,7 +81,7 @@ def save_users(filename, user_collection):
         with open(filename, 'w') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
             writer.writeheader()
-            writer.writerow(user_collection)
+            writer.writerow(user_collection.database)
         return True
 
     except OSError as error:
@@ -109,7 +109,7 @@ def load_status_updates(filename, status_collection):
                                      user_id=row["USER_ID"],
                                      status_text=row["STATUS_TEXT"],
                                      )
-                if user.user_id in status_collection.values:
+                if user.user_id in status_collection.database:
                     continue
                 status_collection.add_status(user.status_id,
                                              user.user_id,
@@ -134,9 +134,9 @@ def save_status_updates(filename, status_collection):
     csv_columns = ['STATUS_ID', 'USER_ID', 'STATUS_TEXT']
     try:
         with open(filename, 'w') as csvfile:
-            writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
+            writer = csv.DictWriter(csvfile)
             writer.writeheader()
-            writer.writerow(status_collection)
+            writer.writerow(status_collection.database)
         return True
 
     except OSError as error:

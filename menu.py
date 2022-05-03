@@ -6,25 +6,25 @@ import main
 
 
 def load_users():
-    '''
+    """
     Loads user accounts from a file
-    '''
+    """
     filename = input('Enter filename of user file: ')
-    main.load_users(filename, user_selection)
+    main.load_users(filename, user_collection)
 
 
 def load_status_updates():
-    '''
+    """
     Loads status updates from a file
-    '''
+    """
     filename = input('Enter filename for status file: ')
     main.load_status_updates(filename, status_collection)
 
 
 def add_user():
-    '''
+    """
     Adds a new user into the database
-    '''
+    """
     user_id = input('User ID: ')
     email = input('User email: ')
     user_name = input('User name: ')
@@ -40,26 +40,30 @@ def add_user():
 
 
 def update_user():
-    '''
+    """
     Updates information for an existing user
-    '''
+    """
     user_id = input('User ID: ')
     email = input('User email: ')
     user_name = input('User name: ')
     user_last_name = input('User last name: ')
-    if not main.update_user(user_id, email, user_name, user_last_name):
+    if not main.modify_user(user_id,
+                            email,
+                            user_name,
+                            user_last_name,
+                            user_collection):
         print("An error occurred while trying to update user")
     else:
         print("User was successfully updated")
 
 
 def search_user():
-    '''
+    """
     Searches a user in the database
-    '''
+    """
     user_id = input('Enter user ID to search: ')
     result = main.search_user(user_id, user_collection)
-    if not result.name:
+    if result is None:
         print("ERROR: User does not exist")
     else:
         print(f"User ID: {result.user_id}")
@@ -69,9 +73,9 @@ def search_user():
 
 
 def delete_user():
-    '''
+    """
     Deletes user from the database
-    '''
+    """
     user_id = input('User ID: ')
     if not main.delete_user(user_id, user_collection):
         print("An error occurred while trying to delete user")
@@ -80,17 +84,17 @@ def delete_user():
 
 
 def save_users():
-    '''
+    """
     Saves user database into a file
-    '''
+    """
     filename = input('Enter filename for users file: ')
     main.save_users(filename, user_collection)
 
 
 def add_status():
-    '''
+    """
     Adds a new status into the database
-    '''
+    """
     user_id = input('User ID: ')
     status_id = input('Status ID: ')
     status_text = input('Status text: ')
@@ -101,9 +105,9 @@ def add_status():
 
 
 def update_status():
-    '''
+    """
     Updates information for an existing status
-    '''
+    """
     user_id = input('User ID: ')
     status_id = input('Status ID: ')
     status_text = input('Status text: ')
@@ -114,9 +118,9 @@ def update_status():
 
 
 def search_status():
-    '''
+    """
     Searches a status in the database
-    '''
+    """
     status_id = input('Enter status ID to search: ')
     result = main.search_status(status_id, status_collection)
     if not result.user_id:
@@ -128,9 +132,9 @@ def search_status():
 
 
 def delete_status():
-    '''
+    """
     Deletes status from the database
-    '''
+    """
     status_id = input('Status ID: ')
     if not main.delete_status(status_id, status_collection):
         print("An error occurred while trying to delete status")
@@ -139,17 +143,17 @@ def delete_status():
 
 
 def save_status():
-    '''
+    """
     Saves status database into a file
-    '''
+    """
     filename = input('Enter filename for status file: ')
     main.save_status_updates(filename, status_collection)
 
 
 def quit_program():
-    '''
+    """
     Quits program
-    '''
+    """
     sys.exit()
 
 
@@ -189,6 +193,6 @@ if __name__ == '__main__':
 
                             Please enter your choice: """)
         if user_selection.upper() in menu_options:
-            menu_options[user_selection]()
+            menu_options[user_selection.upper()]()
         else:
             print("Invalid option")
