@@ -49,19 +49,19 @@ class UserCollection():
         logger.info('Add User')
         return True
 
-    def modify_user(self, user_id, email, user_name, user_last_name):
+    def update_user(self, user_id, email, user_name, user_last_name):
         """
-        Modifies an existing user
+        Updates an existing user
         """
 
         if user_id not in self.database:
             # Rejects update if the user_id does not exist
-            logger.info('Did Not Modify User: user_id does not exist')
+            logger.info('Did Not Update User: user_id does not exist')
             return False
         self.database[user_id].email = email
         self.database[user_id].user_name = user_name
         self.database[user_id].user_last_name = user_last_name
-        logger.info('Modified User')
+        logger.info('Updated User')
         return True
 
     def delete_user(self, user_id):
@@ -71,8 +71,7 @@ class UserCollection():
         if user_id not in self.database:
             # Fails if user does not exist
             logger.info(
-                'Did Not Delete User: user does not exist: '
-                'user does not exist')
+                'Did Not Delete User: user does not exist: ')
             return False
         del self.database[user_id]
         logger.info('Deleted User')

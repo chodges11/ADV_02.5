@@ -49,7 +49,7 @@ def update_user():
     email = input('User email: ')
     user_name = input('User name: ')
     user_last_name = input('User last name: ')
-    if main.modify_user(user_id,
+    if main.update_user(user_id,
                         email,
                         user_name,
                         user_last_name,
@@ -113,7 +113,7 @@ def update_status():
     status_id = input('Status ID: ')
     user_id = input('User ID: ')
     status_text = input('Status text: ')
-    if main.modify_status(status_id, user_id, status_text, status_collection):
+    if main.update_status(status_id, user_id, status_text, status_collection):
         print("Status was successfully updated")
     else:
         print("An error occurred while trying to update status")

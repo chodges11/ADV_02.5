@@ -178,15 +178,15 @@ def add_user(user_id, email, user_name, user_last_name, user_collection):
     return False
 
 
-def modify_user(user_id, email, user_name, user_last_name, user_collection):
+def update_user(user_id, email, user_name, user_last_name, user_collection):
     """
-    Modifies the values of an existing user
+    Updates the values of an existing user
 
     Requirements:
     - Returns False if there are any errors.
     - Otherwise, it returns True.
     """
-    while user_collection.modify_user(user_id,
+    while user_collection.update_user(user_id,
                                       email,
                                       user_name,
                                       user_last_name
@@ -247,15 +247,15 @@ def add_status(status_id, user_id, status_text, status_collection):
     return False
 
 
-def modify_status(status_id, user_id, status_text, status_collection):
+def update_status(status_id, user_id, status_text, status_collection):
     """
-    Modifies the values of an existing status_id
+    Updates the values of an existing status_id
 
     Requirements:
     - Returns False if there are any errors.
     - Otherwise, it returns True.
     """
-    while status_collection.modify_status(status_id,
+    while status_collection.update_status(status_id,
                                           user_id,
                                           status_text
                                           ):

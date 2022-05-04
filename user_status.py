@@ -48,20 +48,20 @@ class UserStatusCollection():
         logger.info('Add User Status')
         return True
 
-    def modify_status(self, status_id, user_id, status_text):
+    def update_status(self, status_id, user_id, status_text):
         """
-        Modifies a status message
+        Updates a status message
 
         The new user_id and status_text are assigned to the existing message
         """
 
         if status_id not in self.database:
             # Rejects update if the status_id does not exist
-            logger.info('Did Not Modify User Status: status_id does not exist')
+            logger.info('Did Not Update User Status: status_id does not exist')
             return False
         self.database[status_id].user_id = user_id
         self.database[status_id].status_text = status_text
-        logger.info('Modified User Status')
+        logger.info('Updated User Status')
         return True
 
     def delete_status(self, status_id):
