@@ -2,12 +2,12 @@
 main driver for a simple social network project
 """
 # pylint: disable = import-error
+# pylint: disable = unused-variable
+# pylint:disable=unspecified-encoding
 
 import csv
 import users as u
 import user_status as us
-
-# pylint:disable=unspecified-encoding
 
 
 def init_user_collection():
@@ -121,7 +121,7 @@ def load_status_updates(filename, status_collection):
                 status_collection.add_status(user.status_id,
                                              user.user_id,
                                              user.status_text,
-                                              )
+                                             )
         return True
 
     except OSError as error:
@@ -153,13 +153,6 @@ def save_status_updates(filename, status_collection):
                 counter += 1
         return True
 
-
-
-
-
-
-
-
     except OSError as error:
         print(f"{type(error)}: {error}")
         return False
@@ -176,7 +169,6 @@ def add_user(user_id, email, user_name, user_last_name, user_collection):
       user_collection.add_user() returns False).
     - Otherwise, it returns True.
     """
-
     while user_collection.add_user(user_id,
                                    email,
                                    user_name,
@@ -225,7 +217,6 @@ def search_user(user_id, user_collection):
     - If the user is found, returns the corresponding User instance.
     - Otherwise, it returns None.
     """
-
     user_search_results = user_collection.search_user(user_id)
     if user_search_results.user_id is not None:
         return user_search_results

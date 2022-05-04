@@ -1,6 +1,8 @@
-'''
+"""
 Provides a basic frontend
-'''
+"""
+# pylint: disable = import-error
+
 import sys
 import main
 

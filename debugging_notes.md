@@ -60,19 +60,3 @@ the status ID does not exist.
 in the same way).
     * I fixed the menu, so that it accepted lower case inputs, by adding
 *'.upper()'* to the second *'if'* line
-
-# Implement logging capabilities on users.py and user_status.py #
-
-1. You can use the standard Python logger or Loguru.
-2. Both ``users.py`` and ``user_status.py`` will share a **single log file**
-per session.
-3. **Each class method** should have **at least one** log info message. For
-example, "New status collection instance created".
-4. Within each method, you should have **one log error message** before the
-method returns ``False``.
-5. You can also add logging to ``main.py`` and ``menu.py``, but it is not a
-requirement.
-6. Log filename: Each time ``menu.py`` is launched it will create a file called
-``log_mm_dd_yyyy.log``, which will reflect the date on which the server is
-being  launched. If there is already a file with that name, the log messages
-will be appended to the existing log file, and not overwritten.
