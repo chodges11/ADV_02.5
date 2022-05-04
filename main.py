@@ -76,12 +76,19 @@ def save_users(filename, user_collection):
     - Otherwise, it returns True.
     """
 
-    csv_columns = ['USER_ID', 'EMAIL', 'NAME', 'LASTNAME']
     try:
-        with open(filename, 'w') as csvfile:
+        with open(filename, 'w', newline='') as csvfile:
+            csv_columns = ['USER_ID', 'EMAIL', 'NAME', 'LASTNAME']
             writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
             writer.writeheader()
-            writer.writerow(user_collection.database)
+            list_user = list(user_collection.database.values())
+            counter = 0
+            for element in list_user:
+                csvfile.write(list_user[counter].user_id + ",")
+                csvfile.write(list_user[counter].email + ",")
+                csvfile.write(list_user[counter].user_name + ",")
+                csvfile.write(list_user[counter].user_last_name + "\n")
+                counter += 1
         return True
 
     except OSError as error:
@@ -131,13 +138,27 @@ def save_status_updates(filename, status_collection):
     - Returns False if there are any errors(such an invalid filename).
     - Otherwise, it returns True.
     """
-    csv_columns = ['STATUS_ID','USER_ID','STATUS_TEXT']
+
     try:
-        with open(filename, 'w') as csvfile:
+        with open(filename, 'w',  newline='') as csvfile:
+            csv_columns = ['STATUS_ID', 'USER_ID', 'STATUS_TEXT']
             writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
             writer.writeheader()
-            writer.writerow(status_collection.database)
+            list_status = list(status_collection.database.values())
+            counter = 0
+            for element in list_status:
+                csvfile.write(list_status[counter].status_id + ",")
+                csvfile.write(list_status[counter].user_id + ",")
+                csvfile.write(list_status[counter].status_text + "\n")
+                counter += 1
         return True
+
+
+
+
+
+
+
 
     except OSError as error:
         print(f"{type(error)}: {error}")

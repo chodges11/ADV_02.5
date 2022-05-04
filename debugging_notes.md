@@ -27,7 +27,8 @@ does not exist.
     * No Error to fix
 9. Try to delete a non-existing user and confirm you get an error message.
     * No Error to fix
-10. Save the users database. <__________________# TODOTODOTODOTODOTODOTODO
+10. Save the users database.
+    * No Error to fix
 11. Load the status database.
     * No Error to fix
 12. Add a new status and confirm you get a success message.
@@ -53,7 +54,8 @@ the status ID does not exist.
     * No Error to fix
 19. Try to delete a non-existing status and confirm you get an error message.
     * No Error to fix
-20. Save the status database. <__________________# TODOTODOTODOTODOTODOTODO
+20. Save the status database.
+    * No Error to fix
 21. Make sure menu options are case-insensitive (i.e., typing "a" or "A" works
 in the same way).
     * I fixed the menu, so that it accepted lower case inputs, by adding
